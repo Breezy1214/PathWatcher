@@ -44,9 +44,7 @@
 -- Packages
 local Fusion = require(script.Packages.Fusion)
 local Signal = require(script.Packages.Signal)
-local TableUtil = require(script.Packages.TableUtil)
-
--- Shared
+local TableUtil = require(script.Packages["Table-util"])
 local DeltaTable = require(script.Packages["Delta-Table"])
 
 -- Types
@@ -317,7 +315,7 @@ function PathWatcher.new(
 		Destroy = function(self: PathWatcher)
 			debugPrint(`Destroying observer for path {pathString}`)
 			if self._changeSignal then
-				self._changeSignal:DisconnectAll()
+				self._changeSignal:Destroy()
 				self._changeSignal = nil
 			end
 			if self._scope then
@@ -379,5 +377,12 @@ end
 function PathWatcher.setDebug(enabled: boolean)
 	DEBUG = enabled
 end
+
+--[=[
+	Destroys the PathWatcher instance, cleaning up internal resources.
+	
+	@function Destroy
+	@within PathWatcher
+]=]
 
 return PathWatcher
