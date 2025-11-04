@@ -42,10 +42,10 @@
 ]=]
 
 -- Packages
-local Fusion = require(script.Packages.Fusion)
-local Signal = require(script.Packages.Signal)
-local TableUtil = require(script.Packages["Table-util"])
-local DeltaTable = require(script.Packages["Delta-Table"])
+local Fusion = require(script.Parent.Fusion)
+local Signal = require(script.Parent.Signal)
+local TableUtil = require(script.Parent["Table-util"])
+local DeltaTable = require(script.Parent["Delta-Table"])
 
 -- Types
 type ValueObject<T> = Fusion.Value<{ any }>
