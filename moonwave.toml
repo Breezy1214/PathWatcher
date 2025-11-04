@@ -1,3 +1,4 @@
+gitSourceBranch = "main"
 gitRepoUrl = "https://github.com/Breezy1214/PathWatcher"
 
 [home]
@@ -5,4 +6,7 @@ enabled = true
 includeReadme = false
 
 [docusaurus]
+projectName = "PathWatcher"
+onBrokenLinks = "throw"
+onBrokenMarkdownLinks = "warn"
 tagline = "Reactive path observation for Fusion with efficient delta-based change detection"
