@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[710],{7676:e=>{e.exports=JSON.parse('[{"type":"link","href":"/api/PathWatcher","label":"\u200bPath\u200bWatcher"}]')}}]);
