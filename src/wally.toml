@@ -1,0 +1,11 @@
+[package]
+name = "charles/PathWatcher"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+Delta-Table = "maximumadhd/delta-table@1.0.1"
+Fusion = "elttob/fusion@0.3.0"
+Table-util = "sleitnick/table-util@1.2.1"
+Signal = "sleitnick/signal@2.0.1"

@@ -1,0 +1,20 @@
+{
+	"name": "PathWatcher",
+	"globIgnorePaths": [
+		"**/.package-lock.json",
+		"**/ReplicatedFirst",
+		"**/wally.toml"
+	],
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"Packages": {
+				"$className": "Folder",
+				"PathWatcher": {
+					"$path": "src"
+				}
+			}
+		}
+	}
+}
