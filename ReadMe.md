@@ -1,5 +1,8 @@
 # PathWatcher
 
+[![Wally](https://img.shields.io/badge/Wally-0.1.1-blue)](https://wally.run/package/breezy1214/pathwatcher?version=0.1.1)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
 > **Reactive path observation for Fusion with efficient delta-based change detection.**
 
 PathWatcher is a focused library for **observing specific paths in Fusion reactive states** with **minimal performance overhead**. It leverages DeltaTable for efficient, delta-based change detection — processing *only* what actually changed.
