@@ -1,6 +1,6 @@
 # PathWatcher
 
-[![Wally](https://img.shields.io/badge/Wally-0.1.1-blue)](https://wally.run/package/breezy1214/pathwatcher?version=0.1.1)
+[![Wally](https://img.shields.io/badge/Wally-0.1.2-blue)](https://wally.run/package/breezy1214/pathwatcher?version=0.1.2)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 > **Reactive path observation for Fusion with efficient delta-based change detection.**
@@ -28,7 +28,7 @@ PathWatcher is a focused library for **observing specific paths in Fusion reacti
 - **Fusion-Native** – Designed for reactive tables in Fusion
 - **Delta Integration** – Processes only changed paths for high efficiency
 - **Path-Based Observation** – Supports string or array paths (e.g. `{"Inventory", "Weapons", 1, "Durability"}`)
-- **Dual APIs** – Use `.Value` reactively or `.onChange()` for side effects
+- **Dual APIs** – Use `.Value` reactively or `:onChange()` for side effects
 
 ---
 
@@ -50,8 +50,8 @@ local goldObserver = PathWatcher.new(playerData, "Currency.Gold")
 
 -- Reactive UI example
 local goldLabel = scope:New("TextLabel")({
-	Text = scope:Computed(function()
-		return "Gold: " .. tostring(goldObserver.Value:get())
+	Text = scope:Computed(function(use)
+		return "Gold: " .. tostring(use(goldObserver.Value))
 	end)
 })
 
@@ -82,9 +82,9 @@ Creates a path observer that tracks changes to a specific keypath in a Fusion st
 **Returns:** `PathWatcher`  
 Contains:
 - `.Value` — Fusion state of the observed value  
-- `.get()` — Current value snapshot  
-- `.onChange(fn)` — Listener for changes  
-- `.Destroy()` — Cleanup method  
+- `:get()` — Current value snapshot  
+- `:onChange(fn)` — Listener for changes  
+- `:Destroy()` — Cleanup method  
 
 ---
 
@@ -121,7 +121,7 @@ PathWatcher.setDebug(true)
 1. Fusion state changes trigger a delta computation.
 2. PathWatcher checks if its path is affected.
 3. If yes, it updates its internal Fusion value.
-4. `.onChange()` listeners fire with old/new values.
+4. `:onChange()` listeners fire with old/new values.
 5. Any dependent Fusion UI updates automatically.
 
 ### Path Detection Rules

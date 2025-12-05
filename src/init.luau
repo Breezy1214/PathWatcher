@@ -61,7 +61,7 @@ type ValueObject<T> = Fusion.Value<{ any }>
 export type PathWatcher = {
 	Value: ValueObject<{ any }>,
 	get: () -> { any },
-	onChange: (listener: (newValue: any, oldValue: any) -> ()) -> any,
+	onChange: (self: PathWatcher, listener: (newValue: any, oldValue: any) -> ()) -> any,
 	Destroy: (self: PathWatcher) -> (),
 	_scope: any, -- Internal scope for cleanup
 	_changeSignal: any, -- Internal signal for change notifications
@@ -181,8 +181,8 @@ end
 	local observer = PathWatcher.new(playerDataState, "Currency.Gold")
 	
 	-- Use the reactive Value in UI
-	scope:Computed(function()
-		return observer.Value:get()
+	scope:Computed(function(use)
+		return use(observer.Value)
 	end)
 	
 	-- Or use onChange for side effects
@@ -306,7 +306,7 @@ function PathWatcher.new(
 		get = function()
 			return Fusion.peek(state)
 		end,
-		onChange = function(listener: (newValue: any, oldValue: any) -> ())
+		onChange = function(_self: PathWatcher, listener: (newValue: any, oldValue: any) -> ())
 			return changeSignal:Connect(listener)
 		end,
 		_scope = observerScope,
@@ -377,12 +377,5 @@ end
 function PathWatcher.setDebug(enabled: boolean)
 	DEBUG = enabled
 end
-
---[=[
-	Destroys the PathWatcher instance, cleaning up internal resources.
-	
-	@function Destroy
-	@within PathWatcher
-]=]
 
 return PathWatcher
