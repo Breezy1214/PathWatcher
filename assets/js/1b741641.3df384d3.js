@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[235],{4410:e=>{e.exports=JSON.parse('{"sourceUrl":"https://github.com/Breezy1214/PathWatcher/blob/main","baseUrl":"/PathWatcher/","classOrder":[],"apiCategories":[]}')}}]);
